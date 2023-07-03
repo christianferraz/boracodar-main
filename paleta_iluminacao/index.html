@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div class="preview"></div>
+    <span>Ajustes de iluminação</span>
+    <div class="controls">
+      <div class="hue">
+        <i class="ph-thin ph-palette"></i>
+        <div>
+          <input type="range" name="" id="hue-slider" min="0" max="360" step="1" value="0">
+        </div>
+        </div>
+      <div class="brightness">
+        <i class="ph-thin ph-sun"></i>
+        <div>
+          <input type="range" name="" id="brightness-slider" min="0" max="100" step="1" value="100">
+        </div>
+      </div>
+      <div class="contrast">
+        <i class="ph-thin ph-circle-half"></i>
+        <div>
+          <input type="range" name="" id="contrast-slider" min="0" max="100" step="1" value="100">
+
+        </div>
+      </div>
+      <button id="startRecordingButton">Iniciar Gravação</button>
+  <button id="stopRecordingButton">Parar Gravação</button>
+    </div>
+  </main>
+</body>
+<script src="./script.js"></script>
+</html>
