@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Desenhar uma linha</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="1400" height="1400"></canvas>
+
+  <script>
+    // Obtém o elemento canvas
+    const canvas = document.getElementById('myCanvas');
+
+    // Obtém o contexto 2D do canvas
+    const context = canvas.getContext('2d');
+
+    // Variáveis para armazenar as coordenadas de clique inicial e final
+    let startX, startY, endX, endY;
+
+    // Função de movimento do mouse
+    function handleMouseMove(event) {
+      if (startX && startY) {
+        // Atualiza as coordenadas de clique final com as coordenadas do mouse
+        endX = event.offsetX;
+        endY = event.offsetY;
+
+        // Limpa o canvas
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Define a cor e espessura da linha
+        context.strokeStyle = 'blue';
+        context.lineWidth = 2;
+
+        // Desenha a linha
+        context.beginPath();
+        context.moveTo(startX, startY);
+        context.lineTo(endX, endY);
+        context.stroke();
+        context.fillStyle = 'black';
+      context.font = '12px Arial';
+      context.fillText('Texto na ponta do mouse', endX, endY);
+      }
+    }
+
+    // Função de clique do mouse
+    function handleMouseDown(event) {
+      // Define as coordenadas de clique inicial
+  
+      startX = event.offsetX;
+      startY = event.offsetY;
+
+      // Adiciona o evento de movimento do mouse ao canvas
+      canvas.addEventListener('mousemove', handleMouseMove);
+    }
+
+    // Função de soltar o clique do mouse
+    function handleMouseUp() {
+      // Remove o evento de movimento do mouse do canvas
+      canvas.removeEventListener('mousemove', handleMouseMove);
+
+      // Limpa as coordenadas de clique inicial e final
+      startX = startY = endX = endY = undefined;
+    }
+
+    // Adiciona o evento de clique inicial e clique final ao canvas
+    canvas.addEventListener('mousedown', handleMouseDown);
+    canvas.addEventListener('mouseup', handleMouseUp);
+  </script>
+</body>
+</html>
